@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import image5 from "../assets/image5.jpg"
+import { useTranslation } from 'react-i18next';
+import i18n from "./Language/i18n.js";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -12,6 +14,12 @@ const container = (delay) => ({
 });
 
 const MySelf = () => {
+
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng); 
+  };
+
   return (
     <div className="border-b border-neutral-900 pb-4 lg:mb-35">
       <div className="flex flex-wrap">
@@ -23,7 +31,7 @@ const MySelf = () => {
               animate="visible"
               className="pb-12 text-2xl font-thin tracking-tight lg:mt-10 lg:text-8xl"
             >
-              Mohamed Mrabet
+              {t('MySelf.name')}
             </motion.h1>
             <motion.span
               variants={container(0)}
@@ -31,7 +39,7 @@ const MySelf = () => {
               animate="visible"
               className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent"
             >
-              Full Stack Developer
+              {t('MySelf.job')}
             </motion.span>
             <motion.p
               variants={container(1)}
@@ -39,13 +47,7 @@ const MySelf = () => {
               animate="visible"
               className="my-2 max-w-xl py-6 font-light tracking-tighter"
             >
-              I am a passionate full-stack developer with a knack for crafting
-              robust and scalable web applications. I have honed my skills in
-              front-end technologies like React.js and Next.js, as well as
-              back-end technologies like Node.js, MySQL, Express, and MongoDB.
-              My goal is to leverage my expertise to create innovative solutions
-              that drive business growth and deliver exceptional user
-              experiences.
+            {t('MySelf.description')}
             </motion.p>
           </div>
         </div>

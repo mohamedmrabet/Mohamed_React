@@ -10,7 +10,8 @@ import { SiTailwindcss } from "react-icons/si";
 import { TiHtml5 } from "react-icons/ti"; 
 import { FaCss3Alt } from "react-icons/fa";
 import { motion } from 'framer-motion'
-
+import { useTranslation } from 'react-i18next';
+import i18n from "./Language/i18n.js";
 
 
 const iconVariants = (duration) =>({
@@ -29,9 +30,10 @@ const iconVariants = (duration) =>({
 
 
 const Techno = () => {
+   const { t, i18n } = useTranslation();
   return (
     <div className='border-b border-neutral-800 pb-24'>
-        <motion.h1 whileInView={{opacity:1 , y:0}} initial={{opacity:0 ,y:-100}} transition={{duration:1.5}} className='my-20 text-center text-4xl'>Technologies</motion.h1>
+        <motion.h1 whileInView={{opacity:1 , y:0}} initial={{opacity:0 ,y:-100}} transition={{duration:1.5}} className='my-20 text-center text-4xl'>{t("Techno.name")}</motion.h1>
         <motion.div 
         whileInView={{opacity:1 , x:0}}
         initial={{opacity:0 , x:-100}}
